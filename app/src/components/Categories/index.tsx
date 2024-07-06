@@ -1,4 +1,3 @@
-import { categories } from '../../mocks/categories';
 import { CategoryContainer, Icon } from './styles';
 import { Text } from "../../components/Text";
 import { FlatList } from 'react-native';
