@@ -1,4 +1,5 @@
 import logo from '../../assets/images/logo.svg'
+import { Orders } from '../Orders'
 
 // Styles
 import { Container, Content } from './styles'
@@ -6,8 +7,10 @@ import { Container, Content } from './styles'
 
 
 
-export function Header(){
+export function HeaderOrders(){
     return(
+        <>
+
         <Container>
             <Content>
                 <div className="page-datails">
@@ -15,8 +18,10 @@ export function Header(){
                     <h2>Acompanhe os pedidos dos clientes</h2>
                 </div>
 
-                <img src={logo} alt="WaiterApp"/>
+                {/* <img src={logo} alt="WaiterApp"/> */}
             </Content>
         </Container>
+        <Orders/>
+        </>
     )
 }
