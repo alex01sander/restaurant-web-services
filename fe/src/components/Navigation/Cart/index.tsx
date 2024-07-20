@@ -11,10 +11,11 @@ interface CartProps {
     onAdd: (product: Product) => void;
     onDecrement: (product: Product) => void;
     onConfirmOrder: () => void;
-    selectedTable: string;
+
+
 }
 
-export function Cart({ cartItems, onAdd, onDecrement, onConfirmOrder, selectedTable }: CartProps) {
+export function Cart({ cartItems, onAdd, onDecrement, onConfirmOrder }: CartProps) {
     const total = calculateTotal(cartItems)
     return (
         <div>

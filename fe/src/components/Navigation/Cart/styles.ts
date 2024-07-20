@@ -19,6 +19,10 @@ export const ProductContainer = styled.div`
     img{
        width: 150px;
     }
+
+    span{
+        color: black;
+    }
 `;
 
 // export const Image = styled.img`
