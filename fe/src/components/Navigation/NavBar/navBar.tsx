@@ -13,7 +13,7 @@ export function NavBar(){
             <MenuLink to="/cardapio">Cardapios</MenuLink>
           </MenuItem>
           <MenuItem>
-            <MenuLink  to="/">Sobre</MenuLink>
+            <MenuLink  to="/pedidos">Pedidos</MenuLink>
           </MenuItem>
           <MenuItem>
             {/* <MenuLink >Cart</MenuLink> */}
