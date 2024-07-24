@@ -14,10 +14,11 @@ export const Item = styled.div`
 export const ProductContainer = styled.div`
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
 
     img{
        width: 150px;
+       border-radius: 8px;
     }
 
     span{
@@ -25,11 +26,12 @@ export const ProductContainer = styled.div`
     }
 `;
 
-// export const Image = styled.img`
-//     width: 50px;
-//     height: 50px;
-//     // outros estilos
-// `;
+export const DescriptionCart = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: 20px 10px;
+
+`
 
 export const QuantityContainer = styled.div`
     margin-left: 8px;
@@ -48,8 +50,8 @@ export const Actions = styled.div`
 `;
 
 export const Summary = styled.div`
-    margin-top: 16px;
-    // outros estilos
+    /* margin-top: 16px;
+    display: flex; */
 `;
 
 export const TotalContainer = styled.div`
@@ -58,8 +60,16 @@ export const TotalContainer = styled.div`
     // outros estilos
 `;
 
-export const Button = styled.div`
-
+export const Button = styled.button`
+    border-radius: 28px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: red;
+    color: #fff;
+    border: none;
+    margin-top: 50px;
 `
 
 export const Icon = styled.div`

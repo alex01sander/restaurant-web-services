@@ -1,6 +1,6 @@
 import { Product } from "../../../Type/Product";
 import { CartItem } from "../../../types/CartItem";
-import { Item, ProductContainer, Summary, TotalContainer, Button, Icon } from "./styles"; // Certifique-se de importar os estilos corretos
+import { Item, ProductContainer, Summary, TotalContainer, Button, Icon, DescriptionCart } from "./styles"; // Certifique-se de importar os estilos corretos
 import { formatCurrency } from "../../../utils/formatCurrency"; // Assumindo que você tem uma função para formatar moeda
 import { FiMinus } from "react-icons/fi";
 import { IoMdAdd } from "react-icons/io";
@@ -29,14 +29,16 @@ export function Cart({ cartItems, onAdd, onDecrement, onConfirmOrder }: CartProp
                                     alt={cartItem.product.name}
 
                                 />
-                                <strong>{cartItem.product.name}</strong>
-                                <span>{cartItem.quantity}x</span>
-                                <strong>{formatCurrency(cartItem.product.price)}</strong>
+                                <DescriptionCart>
+                                    <strong>{cartItem.product.name}</strong>
+                                    <span>{cartItem.quantity}x</span>
+                                    <strong>{formatCurrency(cartItem.product.price)}</strong>
                                 <Icon>
                                     <FiMinus  onClick={() => onDecrement(cartItem.product)}/>
                                         <span>{cartItem.quantity}</span>
                                     <IoMdAdd onClick={() => onAdd(cartItem.product)}/>
                                 </Icon>
+                                </DescriptionCart>
 
                             </ProductContainer>
                         </Item>
@@ -47,8 +49,8 @@ export function Cart({ cartItems, onAdd, onDecrement, onConfirmOrder }: CartProp
 
                             <strong>{formatCurrency(total)}</strong>
                         </TotalContainer>
-                        <Button onClick={onConfirmOrder}>Confirmar pedido</Button>
                     </Summary>
+                    <Button onClick={onConfirmOrder}>Confirmar pedido</Button>
                 </>
             ) : (
                 <span>Seu carrinho está vazio</span>
