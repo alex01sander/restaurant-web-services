@@ -10,6 +10,7 @@ interface ModalProps {
     onClose: () => void;
     product: Product | null;
     handleAdd: (product: Product, quantity: number) => void;
+    children?: React.ReactNode;
 }
 
 export function ModalProductDetails({ visible, onClose, product, handleAdd }: ModalProps) {
@@ -25,7 +26,7 @@ export function ModalProductDetails({ visible, onClose, product, handleAdd }: Mo
             if (prevQuantity > 1) {
                 return prevQuantity - 1;
             }
-            return 1; // evita que a quantidade seja menor que 1
+            return 1;
         });
     };
 
@@ -34,7 +35,7 @@ export function ModalProductDetails({ visible, onClose, product, handleAdd }: Mo
     }
 
     const handleIngredientToggle = (ingredientId: string) => {
-        setCheckedIngredients((prevChecked) => {
+        setCheckedIngredients(prevChecked => {
             if (prevChecked.includes(ingredientId)) {
                 return prevChecked.filter(id => id !== ingredientId);
             } else {
@@ -72,7 +73,7 @@ export function ModalProductDetails({ visible, onClose, product, handleAdd }: Mo
                     <IngredientsContainer>
                         <strong>Ingredientes:</strong>
                         <ul>
-                            {product.ingredients.map((ingredient) => (
+                            {product.ingredients.map(ingredient => (
                                 <IngredientsDetails key={ingredient._id}>
                                     <label>{ingredient.icon}</label>
                                     <span>{ingredient.name}</span>

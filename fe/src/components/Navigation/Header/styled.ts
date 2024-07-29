@@ -36,11 +36,11 @@ export const Content = styled.div`
     }
 `;
 
-export const CartContainer = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 10px;
-`;
+// export const CartContainer = styled.div`
+//     display: flex;
+//     align-items: center;
+//     gap: 10px;
+// `;
 
 export const FlatListWrapper = styled.div`
     display: flex;
@@ -56,4 +56,21 @@ export const FlatListWrapper = styled.div`
     span {
         color: #fff;
     }
+`;
+export const CartContainer = styled.div`
+    position: relative;
+    cursor: pointer;
+    /* outros estilos */
+`;
+
+export const CartBadge = styled.span`
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
 `;

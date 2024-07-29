@@ -8,9 +8,11 @@ import pedi from "../../assets/images/pedi.jpg"
 import promo from "../../assets/images/promo.jpg"
 import delivery from "../../assets/images/delivery.jpg"
 
+interface HomeProps{
+    totalQuantity: number;
+}
 
-
-export function Home() {
+export function Home({totalQuantity} : HomeProps) {
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
     const [isCartModalVisible, setIsCartModalVisible] = useState(false);
 
@@ -76,7 +78,7 @@ export function Home() {
 
     return (
         <>
-            <Header onOpenCartModal={handleOpenCartModal} />
+            <Header onOpenCartModal={handleOpenCartModal}  totalQuantity={totalQuantity}/>
             <Imagens>
                 <img src={pedi} alt="pedi"/>
                 <img src={promo} alt="promo"/>
@@ -84,14 +86,14 @@ export function Home() {
 
 
             </Imagens>
-            <ModalCartDetails
+            {/* <ModalCartDetails
                 visible={isCartModalVisible}
                 onClose={handleCloseCartModal}
                 cartItems={cartItems}
                 handleAdd={handleAddToCart}
                 handleDecrement={handleDecrement}
                 handleConfirmOrder={handleConfirmOrder}
-            />
+            /> */}
         </>
     );
 }
