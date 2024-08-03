@@ -1,4 +1,3 @@
-import logo from '../../assets/images/logo.svg'
 import { Orders } from '../Orders'
 
 // Styles

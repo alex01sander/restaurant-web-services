@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import{ useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { GlobalStyles } from "./styles/GlobalStyles";
 import { ToastContainer } from "react-toastify";
@@ -80,6 +80,7 @@ export function App() {
                             handleOpenCartModal={handleOpenCartModal}
                             isCartModalVisible={isCartModalVisible}
                             handleCloseCartModal={handleCloseCartModal}
+
                         />
                     }
                 />

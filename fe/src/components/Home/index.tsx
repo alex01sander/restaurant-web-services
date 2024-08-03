@@ -1,21 +1,21 @@
 import { Header } from "../Navigation/Header";
-import { CartItem } from "../../types/CartItem";
-import { Product } from "../../Type/Product";
 import { ModalCartDetails } from "../Navigation/ModalCartDetails";
 import { Imagens } from "./styles";
-import pedi from "../../assets/images/pedi.jpg";
-import promo from "../../assets/images/promo.jpg";
-import delivery from "../../assets/images/delivery.jpg";
+import pedi from "../../assets/images/pedi.jpg"
+import promo from "../../assets/images/promo.jpg"
+import delivery from "../../assets/images/delivery.jpg"
+import { CartItem } from "../../types/CartItem";
+import { Product } from "../../Type/Product";
 
 interface HomeProps {
     totalQuantity: number;
     cartItems: CartItem[];
-    handleAddToCart: (product: Product) => void;
+    handleAddToCart: (product: Product, quantity?: number) => void;
     handleDecrement: (product: Product) => void;
     handleConfirmOrder: () => void;
+    isCartModalVisible: boolean;
     handleOpenCartModal: () => void;
     handleCloseCartModal: () => void;
-    isCartModalVisible: boolean;
 }
 
 export function Home({
@@ -24,12 +24,13 @@ export function Home({
     handleAddToCart,
     handleDecrement,
     handleConfirmOrder,
-    handleOpenCartModal,
-    handleCloseCartModal,
     isCartModalVisible,
+    handleOpenCartModal,
+    handleCloseCartModal
 }: HomeProps) {
     return (
         <>
+
             <Header onOpenCartModal={handleOpenCartModal} totalQuantity={totalQuantity} />
             <Imagens>
                 <img src={pedi} alt="pedi" />

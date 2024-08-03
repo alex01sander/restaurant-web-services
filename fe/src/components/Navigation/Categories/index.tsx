@@ -27,6 +27,7 @@ export function Categories({
 
     return (
         <>
+
             <Header onOpenCartModal={handleOpenCartModal} totalQuantity={totalQuantity} />
             <ModalCartDetails
                 visible={isCartModalVisible}
