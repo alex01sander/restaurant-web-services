@@ -5,12 +5,16 @@ import { FlatListWrapper, ProductContent, ProductDetails } from "./styles";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { ModalProductDetails } from "../ModalProductDetails";
 import { Product } from "../../../Type/Product";
+import { SelectCategories } from "../SelectCategories";
+
 
 interface MenuProps {
     handleAdd: (product : Product) => void;
+
+    onSelectCategory: (categoryId: string) => Promise<void>;
 }
 
-export function Menu({handleAdd}: MenuProps) {
+export function Menu({handleAdd, onSelectCategory}: MenuProps) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState<null | Product>(null);
 
@@ -28,6 +32,11 @@ export function Menu({handleAdd}: MenuProps) {
 
     return (
         <>
+           <SelectCategories
+                onSelectCategory={onSelectCategory}
+            />
+
+
 
             {isModalVisible && (
                 <ModalProductDetails
