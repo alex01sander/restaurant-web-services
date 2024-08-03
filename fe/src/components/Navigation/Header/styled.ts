@@ -36,11 +36,7 @@ export const Content = styled.div`
     }
 `;
 
-// export const CartContainer = styled.div`
-//     display: flex;
-//     align-items: center;
-//     gap: 10px;
-// `;
+
 
 export const FlatListWrapper = styled.div`
     display: flex;
@@ -74,3 +70,42 @@ export const CartBadge = styled.span`
     font-size: 12px;
     font-weight: bold;
 `;
+
+export const ContentConateiner = styled.div`
+    display: flex;
+    flex-direction: column;
+
+
+`
+
+export const Login = styled.div`
+    display: flex;
+
+    justify-content:center;
+    align-items: center;
+
+    span{
+        color: #fff;
+        font-size: 12px;
+        margin-left: 8px;
+    }
+
+    b{
+        cursor: pointer;
+    }
+
+`
+export const SigUpUser = styled.div`
+`
+export const ContentContainer = styled.div`
+
+`
+
+
+export const SignUpContainer = styled.div`
+
+`
+
+export const Register = styled.div`
+
+`
