@@ -1,7 +1,7 @@
 // SignUpForm.tsx
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import {  FormWrapper, Title, Form, Input, Button, ErrorMessage, Overlay, ModalContainer } from "./styles";
+import {  FormWrapper, Title, Form, Input, Button, ErrorMessage, Overlay } from "./styles";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 
@@ -37,7 +37,8 @@ export function SignUp({onRequestClose} : SigUpProps) {
             // Cria um novo usuário com email e senha
             await createUserWithEmailAndPassword(auth, data.email, data.senha);
             console.log("Usuário criado com sucesso:", data);
-            // Aqui você pode adicionar uma lógica para redirecionar ou limpar o formulário
+
+            onRequestClose()
         } catch (error: any) {
             console.error("Erro ao criar usuário:", error.message);
             setError("senha", { type: "manual", message: error.message });
