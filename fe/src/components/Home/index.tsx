@@ -10,7 +10,7 @@ import { Product } from "../../Type/Product";
 interface HomeProps {
     totalQuantity: number;
     cartItems: CartItem[];
-    handleAddToCart: (product: Product, quantity?: number) => void;
+    handleAddToCart: (product: Product, quantity?: number, selectedIngredients?: string[]) => void;
     handleDecrement: (product: Product) => void;
     handleConfirmOrder: () => void;
     isCartModalVisible: boolean;

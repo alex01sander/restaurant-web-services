@@ -9,8 +9,7 @@ interface ModalProps {
     visible: boolean;
     onClose: () => void;
     product: Product | null;
-    handleAdd: (product: Product, quantity: number) => void;
-    children?: React.ReactNode;
+    handleAdd: (product: Product, quantity: number, selectedIngredients: string[]) => void;
 }
 
 export function ModalProductDetails({ visible, onClose, product, handleAdd }: ModalProps) {
@@ -22,12 +21,7 @@ export function ModalProductDetails({ visible, onClose, product, handleAdd }: Mo
     };
 
     const decrementQuantity = () => {
-        setQuantity(prevQuantity => {
-            if (prevQuantity > 1) {
-                return prevQuantity - 1;
-            }
-            return 1;
-        });
+        setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
     };
 
     if (!visible || !product) {
@@ -50,9 +44,15 @@ export function ModalProductDetails({ visible, onClose, product, handleAdd }: Mo
     };
 
     function handleAddToCart() {
-        handleAdd(product!, quantity);
+        if (checkedIngredients.length === 0) {
+            alert("Você deve selecionar pelo menos um ingrediente.");
+            return;
+        }
+        handleAdd(product!, quantity, checkedIngredients); // Passando os ingredientes selecionados
         onClose();
     }
+
+
 
     return (
         <Overlay>
@@ -66,7 +66,7 @@ export function ModalProductDetails({ visible, onClose, product, handleAdd }: Mo
                     />
                 </Image>
                 <ProductDetails>
-                    <div className="desciption-details">
+                    <div className="description-details">
                         <strong>{product.name}</strong>
                         <span>{product.description}</span>
                     </div>
